@@ -22,6 +22,10 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
+import { RecipeCategoriesComponent } from './recipe/recipe-categories/recipe-categories.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { RecipeFavoritesComponent } from './recipe/recipe-favorites/recipe-favorites.component';
+
 
 
 @NgModule({
@@ -40,6 +44,9 @@ import { SharedModule } from './shared/shared.module';
     Error404Component,
     NavbarComponent,
     FooterComponent,
+    RecipeCategoriesComponent,
+    UserProfileComponent,
+    RecipeFavoritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,13 +54,13 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     GuardModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    FormsModule
   ],
   bootstrap: [AppComponent]
 })

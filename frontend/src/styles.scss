@@ -1,2 +1,35 @@
 @import 'bootstrap/scss/bootstrap';
 
+// Variabili di Bootstrap per i colori
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+// Personalizzazione della navbar
+.bg-dark {
+  background-color: $dark;
+}
+
+.text-white {
+  color: $light;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $secondary;
+}
+
+.btn-outline-success-custom {
+  border-color: $success;
+  color: $success;
+
+  &:hover {
+    background-color: $success;
+    color: $light;
+  }
+}
+

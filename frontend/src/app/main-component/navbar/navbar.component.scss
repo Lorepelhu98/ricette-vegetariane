@@ -1,0 +1,25 @@
+.navbar {
+  .bg-dark {
+    background-color: #006400;
+  }
+
+  .text-white {
+    color: #FFFFFF;
+  }
+
+  .nav-link {
+    &:hover {
+      color: #4CAF50;
+    }
+  }
+
+  .btn-outline-success {
+    border-color: #4CAF50;
+    color: #4CAF50;
+
+    &:hover {
+      background-color: #4CAF50;
+      color: #FFFFFF;
+    }
+  }
+}
