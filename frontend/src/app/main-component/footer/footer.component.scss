@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
+
+.footerSett{
+  color:  rgb(5, 161, 5);
+  width: fit-content;
+  cursor: pointer;
+  font-family: JetBrains Mono, monospace;
+}
+
+.footerSett:hover{
+  color: #fec93a;
+  transition: 0.2s;
+}

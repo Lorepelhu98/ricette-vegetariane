@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Data
 @Entity
 @Table(name = "users")
-public class User implements UserDetails {
+public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,8 +30,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private boolean enabled;
 
-    @Column(nullable = true) // Aggiunto nullable = true per l'avatar
-    private String avatar; // Nuovo campo per l'URL dell'avatar
+    @Column(nullable = true)
+    private String avatar;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Recipe> recipes;
@@ -45,7 +45,7 @@ public class User implements UserDetails {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
-    public User(Long id, String username, String password, String email, boolean enabled, List<String> roles) {
+    public Users(Long id, String username, String password, String email, boolean enabled, List<String> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -54,7 +54,7 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public User() {
+    public Users() {
     }
 
     @Override

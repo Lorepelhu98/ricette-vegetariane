@@ -3,7 +3,7 @@ package com.vegan.ricette_vegetariane.service;
 import com.vegan.ricette_vegetariane.dto.CommentDTO;
 import com.vegan.ricette_vegetariane.entity.Comment;
 import com.vegan.ricette_vegetariane.entity.Recipe;
-import com.vegan.ricette_vegetariane.entity.User;
+import com.vegan.ricette_vegetariane.entity.Users;
 import com.vegan.ricette_vegetariane.repository.CommentRepository;
 import com.vegan.ricette_vegetariane.repository.RecipeRepository;
 import com.vegan.ricette_vegetariane.repository.UserRepository;
@@ -54,7 +54,7 @@ public class CommentService {
         comment.setId(commentDTO.getId());
         comment.setComment(commentDTO.getText());
 
-        User user = userRepository.findByUsername(username)
+        Users user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + username));
         comment.setUser(user);
 

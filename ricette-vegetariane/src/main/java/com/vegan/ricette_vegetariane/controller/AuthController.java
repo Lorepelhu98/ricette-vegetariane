@@ -2,7 +2,7 @@ package com.vegan.ricette_vegetariane.controller;
 
 import com.vegan.ricette_vegetariane.dto.UserDTO;
 import com.vegan.ricette_vegetariane.security.JwtUtils;
-import com.vegan.ricette_vegetariane.service.UserService;
+import com.vegan.ricette_vegetariane.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +21,7 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserService userService;
+    private UserServices userService;
 
     @Autowired
     private JwtUtils jwtUtils;

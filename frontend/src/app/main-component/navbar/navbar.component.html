@@ -1,70 +1,45 @@
-<div class="px-3 py-2 bg-dark text-white border-bottom">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-        <img src="/frontend/src/assets/logo.png" alt="Logo" height="40"></a>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item">
-          <a routerLink="/" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#house-door"></use>
-            </svg>
-            Home
-          </a>
+<nav class="navbar navbar-expand-lg mainNav">
+  <div class="container-fluid">
+    <a class="navbar-brand brand" routerLink="/"><img class="logo" src="/frontend/src/assets/img/logo.png"></a>
+
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav card card-body">
+        <li class="nav-item active">
+          <a class="nav-link font" routerLink="/" (click)="isMenuCollapsed = true">Home</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/ricette" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#book-half"></use>
-            </svg>
-            Ricette
-          </a>
+          <a class="nav-link font" routerLink="/ricette" (click)="isMenuCollapsed = true">Ricette</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/contatti" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#telephone-fill"></use>
-            </svg>
-            Contatti
-          </a>
+          <a class="nav-link font" routerLink="/blog" (click)="isMenuCollapsed = true">Blog</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/chi-siamo" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#people-fill"></use>
-            </svg>
-            Chi Siamo
-          </a>
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a class="nav-link font" routerLink="/ricette-preferite" (click)="isMenuCollapsed = true">Ricette Preferite</a>
         </li>
+        <form class="d-flex ms-auto">
+          <input class="form-control me-2" type="search" placeholder="Cerca ricette" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Cerca</button>
+        </form>
         <li class="nav-item">
-          <a routerLink="/blog" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#journal-text"></use>
-            </svg>
-            Blog
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/register" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#person-plus-fill"></use>
-            </svg>
-            Register
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link text-white" routerLinkActive="active">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#person-circle"></use>
-            </svg>
-            Login
-          </a>
+          <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn nav-link border-0 font" id="dropdownBasic1" ngbDropdownToggle>
+                  Menu
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDiv">
+                  <button class="font" routerLink="/register" ngbDropdownItem>Register</button>
+                  <button class="font" routerLink="/login" ngbDropdownItem>Login</button>
+                  <button class="font" routerLink="/recensioni" ngbDropdownItem>Recensioni</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
-      <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="search" placeholder="Cerca ricette" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Cerca</button>
-      </form>
+      <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button>
     </div>
   </div>
-</div>
+</nav>

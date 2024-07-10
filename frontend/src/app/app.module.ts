@@ -25,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
 import { RecipeCategoriesComponent } from './recipe/recipe-categories/recipe-categories.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { RecipeFavoritesComponent } from './recipe/recipe-favorites/recipe-favorites.component';
-
+import { AuthService } from './services/auth.service';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -55,9 +56,11 @@ import { RecipeFavoritesComponent } from './recipe/recipe-favorites/recipe-favor
     GuardModule,
     CoreModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgbCollapseModule
   ],
   providers: [
+    AuthService,
     provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

@@ -1,25 +1,52 @@
-.navbar {
-  .bg-dark {
-    background-color: #006400;
-  }
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
 
-  .text-white {
-    color: #FFFFFF;
-  }
+.mainNav {
+  background-color: white;
+  height: 5rem;
+  border-bottom: 1px solid black;
+  font-family: 'JetBrains Mono', monospace;
+}
 
-  .nav-link {
-    &:hover {
-      color: #4CAF50;
-    }
-  }
+.brand {
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}
 
-  .btn-outline-success {
-    border-color: #4CAF50;
-    color: #4CAF50;
+.logo {
+  width: 170px;
+  margin-top: 10px;
+}
 
-    &:hover {
-      background-color: #4CAF50;
-      color: #FFFFFF;
-    }
+@media screen and (max-width: 991px) {
+  .logo {
+    display: none;
   }
 }
+
+.card-body {
+  background-color:rgb(5, 161, 5);
+  border: none;
+}
+
+.font {
+  color: black;
+  font-weight: bold;
+}
+
+.font:hover {
+  color: #EBCB00;
+  transition: 0.1s;
+  transform: scale(1.02);
+  background-color: transparent;
+}
+
+.dropDiv {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.collapse {
+  z-index: 1;
+}
+

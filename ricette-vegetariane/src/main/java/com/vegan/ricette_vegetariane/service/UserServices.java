@@ -1,7 +1,7 @@
 package com.vegan.ricette_vegetariane.service;
 
 import com.vegan.ricette_vegetariane.dto.UserDTO;
-import com.vegan.ricette_vegetariane.entity.User;
+import com.vegan.ricette_vegetariane.entity.Users;
 import com.vegan.ricette_vegetariane.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserServices {
 
     @Autowired
     private UserRepository userRepository;
@@ -29,24 +29,24 @@ public class UserService {
     }
 
     // Metodo per trovare un utente per username
-    public Optional<User> findByUsername(String username) {
+    public Optional<Users> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
     // Metodo per trovare un utente per email
-    public Optional<User> findByEmail(String email) {
+    public Optional<Users> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
     // Metodo per salvare un utente
-    public User saveUser(UserDTO userDTO) {
-        User user = convertToEntity(userDTO); // Converte DTO in entità User
+    public Users saveUser(UserDTO userDTO) {
+        Users user = convertToEntity(userDTO); // Converte DTO in entità User
         user.setPassword(passwordEncoder.encode(user.getPassword())); // Codifica la password
         return userRepository.save(user);
     }
 
     // Metodo per registrare un nuovo utente
-    public User registerNewUser(UserDTO userDTO) {
+    public Users registerNewUser(UserDTO userDTO) {
         // Verifica se l'username è già utilizzato
         if (existsByUsername(userDTO.getUsername())) {
             throw new IllegalArgumentException("Username is already taken: " + userDTO.getUsername());
@@ -58,7 +58,7 @@ public class UserService {
         }
 
         // Crea e salva l'utente
-        User user = convertToEntity(userDTO);
+        Users user = convertToEntity(userDTO);
         user.setPassword(passwordEncoder.encode(user.getPassword())); // Codifica la password
         return userRepository.save(user);
     }
@@ -74,21 +74,21 @@ public class UserService {
     }
 
     // Metodo per trovare un utente per ID
-    public Optional<User> findById(Long id) {
+    public Optional<Users> findById(Long id) {
         return userRepository.findById(id);
     }
 
     // Metodo per trovare tutti gli utenti
     public List<UserDTO> findAll() {
-        List<User> users = userRepository.findAll();
+        List<Users> users = userRepository.findAll();
         return users.stream()
                 .map(this::convertToDTO) // Converte entità User in DTO
                 .collect(Collectors.toList());
     }
 
     // Metodo privato per la conversione da UserDTO a entità User
-    private User convertToEntity(UserDTO userDTO) {
-        User user = new User();
+    private Users convertToEntity(UserDTO userDTO) {
+        Users user = new Users();
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
@@ -98,7 +98,7 @@ public class UserService {
     }
 
     // Metodo privato per la conversione da User a UserDTO
-    private UserDTO convertToDTO(User user) {
+    private UserDTO convertToDTO(Users user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
         userDTO.setEmail(user.getEmail());

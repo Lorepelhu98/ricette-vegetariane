@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-avatar',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './user-avatar.component.scss'
 })
 export class UserAvatarComponent {
+  @Input() user: any;
 
+  constructor() { }
 }
