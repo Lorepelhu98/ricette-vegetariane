@@ -1,0 +1,46 @@
+
+<div *ngIf="view === 'list'">
+  <h2>Lista delle Ricette</h2>
+  <div class="row no-gutters">
+    <div class="col-md-4 col-sm-6 mb-2" *ngFor="let recipe of recipes">
+      <div class="card border-success recipe-card">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="{{ recipe.name }}">
+        <div class="card-body bg-light">
+          <h5 class="card-title text-success">{{ recipe.name }}</h5>
+          <p class="card-text">{{ recipe.description | slice:0:100 }}...</p>
+          <a [routerLink]="['/recipes', recipe.id]" class="btn btn-success btn-sm">Dettagli</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="view = 'form'">Aggiungi Nuova Ricetta</button>
+</div>
+
+
+<div *ngIf="view === 'detail'">
+  <div class="card border-success">
+    <img src="https://via.placeholder.com/300" class="card-img-top" alt="{{ selectedRecipe?.name }}">
+    <div class="card-body bg-light">
+      <h5 class="card-title text-success">{{ selectedRecipe?.name }}</h5>
+      <p class="card-text">{{ selectedRecipe?.description }}</p>
+      <button class="btn btn-secondary" (click)="view = 'list'">Torna alla Lista</button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="view === 'form'">
+  <h2>{{ editMode ? 'Modifica Ricetta' : 'Aggiungi Nuova Ricetta' }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input id="name" class="form-control" [(ngModel)]="recipeForm.name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Descrizione:</label>
+      <textarea id="description" class="form-control" [(ngModel)]="recipeForm.description" name="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">{{ editMode ? 'Salva Modifiche' : 'Aggiungi Ricetta' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="view = 'list'">Annulla</button>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.card-img-top {
+  height: 125px;
+  object-fit: cover;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.card-title {
+  color: #28a745;
+}
+.card-text {
+  color: #6c757d;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+}

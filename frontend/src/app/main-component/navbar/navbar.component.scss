@@ -1,52 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
 
-.mainNav {
-  background-color: white;
-  height: 5rem;
-  border-bottom: 1px solid black;
-  font-family: 'JetBrains Mono', monospace;
+/* Stile per la navbar */
+.navbar {
+  background-color: rgb(5, 161, 5);
 }
 
-.brand {
-  color: white;
-  font-weight: bold;
-  font-size: 40px;
-}
-
+/* Logo */
 .logo {
-  width: 170px;
-  margin-top: 10px;
+  width: 80px;
 }
 
-@media screen and (max-width: 991px) {
-  .logo {
-    display: none;
-  }
+/* Stile per i link della navbar */
+.nav-link {
+  color: rgb(26, 36, 26);
+  font-weight: bold;
+  padding: 10px 15px;
 }
 
-.card-body {
-  background-color:rgb(5, 161, 5);
+/* Stile per i link al passaggio del mouse */
+.nav-link:hover {
+  color: rgb(247, 232, 71);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dark {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
   border: none;
-}
-
-.font {
-  color: black;
+  padding: 8px 16px;
+  border-radius: 4px;
   font-weight: bold;
 }
 
-.font:hover {
-  color: #EBCB00;
-  transition: 0.1s;
-  transform: scale(1.02);
-  background-color: transparent;
+/* Stile per il botton di logout */
+.btn-danger {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
-.dropDiv {
-  background-color: white;
-  border: 1px solid black;
+/* Posizionamento dei pulsanti a destra */
+.d-flex {
+  display: flex;
+  align-items: center;
 }
 
-.collapse {
-  z-index: 1;
+.ms-auto {
+  margin-left: auto;
 }
-

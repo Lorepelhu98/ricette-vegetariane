@@ -1,0 +1,55 @@
+<div class="container my-5">
+
+  <div class="jumbotron text-center bg-light py-5">
+    <h1 class="display-4">Benvenuti nel Paradiso delle Ricette Vegetariane</h1>
+    <p class="lead">Scopri un mondo di sapori freschi, sani e completamente vegetali.</p>
+    <a class="btn btn-success btn-lg mt-4" href="/recipes" role="button">Esplora le Ricette</a>
+  </div>
+
+
+  <section class="my-5">
+    <h2 class="text-center mb-4">Ultime Ricette</h2>
+    <div class="row">
+      <div *ngFor="let recipe" class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img [src]="recipe.image" class="card-img-top" alt="{{ recipe.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text">{{ recipe.description }}</p>
+            <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">Scopri di più</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="my-5">
+    <h2 class="text-center mb-4">Categorie di Ricette</h2>
+    <div class="row text-center">
+      <div *ngFor="let category" class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.name }}</h5>
+            <p class="card-text">{{ category.description }}</p>
+            <a [routerLink]="['/category', category.id]" class="btn btn-success">Esplora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5 bg-light py-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Chi Siamo</h2>
+        <p>Sono un appassionato di cucina vegetariana, dedicati a condividere le migliori ricette, consigli e trucchi per uno stile di vita sano e sostenibile. Il nostro obiettivo è ispirare le persone a mangiare in modo più consapevole, godendo di tutto ciò che la cucina vegetariana ha da offrire.</p>
+        <p>Unisciti a noi in questa avventura culinaria e scopri come deliziare il tuo palato senza compromettere il tuo benessere o l'ambiente.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="/frontend/src/assets/logo.png" class="img-fluid rounded" alt="Chi Siamo">
+      </div>
+    </div>
+  </section>
+</div>
+
