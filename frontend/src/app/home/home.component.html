@@ -8,31 +8,43 @@
 
 
   <section class="my-5">
-    <h2 class="text-center mb-4">Ultime Ricette</h2>
+    <h2 class="text-center mb-4">La Storia della Cucina Vegetariana</h2>
     <div class="row">
-      <div *ngFor="let recipe" class="col-md-4 mb-4">
-        <div class="card h-100">
-          <img [src]="recipe.image" class="card-img-top" alt="{{ recipe.title }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <p class="card-text">{{ recipe.description }}</p>
-            <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">Scopri di più</a>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <p>La cucina vegetariana ha radici antiche e profonde, con tradizioni che risalgono a migliaia di anni fa. In molte culture, il vegetarianismo è stato adottato per motivi religiosi, filosofici e salutari. La cucina vegetariana celebra la ricchezza e la varietà dei vegetali, dei cereali e dei legumi, offrendo piatti saporiti e nutrienti senza l'uso di carne.</p>
+        <p>Nel corso degli anni, il vegetarianismo è diventato sempre più popolare in tutto il mondo, con innovazioni culinarie che hanno dimostrato come è possibile creare piatti gustosi e soddisfacenti utilizzando solo ingredienti vegetali. Oggi, la cucina vegetariana è apprezzata per i suoi benefici per la salute e per l'ambiente, e continua a ispirare cuochi e appassionati in tutto il mondo.</p>
+      </div>
+      <div class="col-md-6">
+        <img [src]="'https://th.bing.com/th/id/R.62142621c5daf89c5401e37beb999b0f?rik=zW3XUBMoCtZ7kg&pid=ImgRaw&r=0'" class="img-fluid rounded" alt="Storia della Cucina Vegetariana">
       </div>
     </div>
   </section>
 
 
   <section class="my-5">
-    <h2 class="text-center mb-4">Categorie di Ricette</h2>
-    <div class="row text-center">
-      <div *ngFor="let category" class="col-md-4 mb-4">
+    <h2 class="text-center mb-4">Benefici della Cucina Vegetariana</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
         <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">{{ category.name }}</h5>
-            <p class="card-text">{{ category.description }}</p>
-            <a [routerLink]="['/category', category.id]" class="btn btn-success">Esplora</a>
+          <div class="card-body text-center">
+            <h5 class="card-title">Salute e Benessere</h5>
+            <p class="card-text">Una dieta vegetariana ben bilanciata può ridurre il rischio di malattie croniche, migliorare la digestione e aumentare i livelli di energia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sostenibilità Ambientale</h5>
+            <p class="card-text">Adottare una dieta vegetariana contribuisce a ridurre l'impatto ambientale, preservare le risorse naturali e combattere il cambiamento climatico.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sostenibilità Economica</h5>
+            <p class="card-text">La cucina vegetariana può essere più economica rispetto a una dieta a base di carne, permettendo di risparmiare su costi alimentari e risorse.</p>
           </div>
         </div>
       </div>
@@ -47,7 +59,7 @@
         <p>Unisciti a noi in questa avventura culinaria e scopri come deliziare il tuo palato senza compromettere il tuo benessere o l'ambiente.</p>
       </div>
       <div class="col-md-6">
-        <img src="/frontend/src/assets/logo.png" class="img-fluid rounded" alt="Chi Siamo">
+        <img [src]="'https://th.bing.com/th/id/OIP.j5kkTyD4QyLV1ZRjK2El8wHaEK?rs=1&pid=ImgDetMain'" class="img-fluid rounded" alt="Chi Siamo">
       </div>
     </div>
   </section>
